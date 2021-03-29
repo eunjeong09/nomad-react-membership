@@ -1,22 +1,32 @@
 class ObjectUtilities {
     /* Your magic here */
-    mergeObjects = (objA, objB) => {
-      console.log(...objA, ...objB);
+    static mergeObjects = (objA, objB) => {
+      const objC = { ...objA, ...objB };
+      return objC;
     };
-    // const removePassword = () => {
   
-    // }
+    static removePassword = (user) => {
+      delete user.password;
+      return user;
+    };
   
-    // const freezeObj = () => {
+    static freezeObj = (cleanUser) => {
+      Object.defineProperty(cleanUser, "name", { writable: false });
+      return cleanUser;
+    };
   
-    // }
+    static getOnlyValues = (frozenUser) => {
+      const values = [];
+      values.push(frozenUser.name);
+      values.push(frozenUser.favFood);
   
-    // const getOnlyValues = () =>{
+      return values;
+    };
   
-    // }
-    // const getOnlyProperties = () =>{
-  
-    // }
+    static getOnlyProperties = (frozenUser) => {
+      const test = Object.keys(frozenUser);
+      return test;
+    };
   }
   
   const objA = {
@@ -31,16 +41,16 @@ class ObjectUtilities {
   const user = ObjectUtilities.mergeObjects(objA, objB);
   console.log(user);
   
-  // const cleanUser = ObjectUtilities.removePassword(user);
-  // console.log(cleanUser);
+  const cleanUser = ObjectUtilities.removePassword(user);
+  console.log(cleanUser);
   
-  // const frozenUser = ObjectUtilities.freezeObj(cleanUser);
+  const frozenUser = ObjectUtilities.freezeObj(cleanUser);
   
-  // const onlyValues = ObjectUtilities.getOnlyValues(frozenUser);
-  // console.log(onlyValues);
+  const onlyValues = ObjectUtilities.getOnlyValues(frozenUser);
+  console.log(onlyValues);
   
-  // const onlyProperties = ObjectUtilities.getOnlyProperties(frozenUser);
-  // console.log(onlyProperties);
+  const onlyProperties = ObjectUtilities.getOnlyProperties(frozenUser);
+  console.log(onlyProperties);
   
   frozenUser.name = "Hello!"; // This should show an error
   
