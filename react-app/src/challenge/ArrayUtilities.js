@@ -31,6 +31,21 @@ class ArrayUtilities {
   };
 }
 
+// 정답
+/*
+class ArrayUtilities {
+  static addZeros = arr => arr.map(n => n * 10);
+  static moreThanFifty = arr => arr.filter(n => n > 50);
+  static removeFirst = arr => {
+    const [, ...rest] = arr;
+    return rest;
+  };
+  static sumAll = arr => arr.reduce((a, b) => a + b, 0);
+  static divide = payload => `${payload}`.split("");
+}
+
+*/
+
 const addZeros = ArrayUtilities.addZeros(numbers);
 console.log(addZeros);
 
