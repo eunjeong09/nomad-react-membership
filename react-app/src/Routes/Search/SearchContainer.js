@@ -4,8 +4,8 @@ import SearchPresenter from "./SearchPresenter";
 
 export default class extends React.Component {
     state = {
-        movieResults: null,
-        tvResults: null,
+        movieResults: [],
+        tvResults: [],
         searchTerm: "",
         loading: false,
         error: null
@@ -38,6 +38,8 @@ export default class extends React.Component {
             const {
                 data: { results: tvResults }
             } = await tvApi.search(searchTerm);
+            console.log(typeof(movieResults));
+            console.log(typeof(tvResults));
             this.setState({
                 movieResults,
                 tvResults

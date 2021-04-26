@@ -30,10 +30,6 @@ const SearchPresenter = ({
   updateTerm
 }) => (
   <Container>
-    <span>aaa</span><br/>
-    <span>{movieResults}</span><br/>
-
-    <span>ccc</span>
     <Form onSubmit={handleSubmit}>
       <Input
         placeholder="Search Movies or TV Shows..."
